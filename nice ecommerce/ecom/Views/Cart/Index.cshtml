@@ -1,0 +1,47 @@
+﻿@model ShoppingCart
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h2>Your Shopping Cart</h2>
+
+@if (!Model.ShoppingCartItems.Any())
+{
+    <p>Your cart is empty.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ShoppingCartItems)
+            {
+                <tr>
+                    <td>@item.Product.ProductName</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Product.Price</td>
+                    <td>@(item.Product.Price * item.Quantity)</td>
+                    <td>
+                        <form asp-action="RemoveFromCart" method="post">
+                            <input type="hidden" name="productId" value="@item.ProductId" />
+                            <button type="submit" class="btn btn-danger">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p>Total: @Model.ShoppingCartItems.Sum(i => i.Product.Price * i.Quantity)</p>
+    <form asp-action="ClearCart" method="post">
+        <button type="submit" class="btn btn-warning">Clear Cart</button>
+    </form>
+}

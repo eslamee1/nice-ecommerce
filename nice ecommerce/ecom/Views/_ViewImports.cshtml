@@ -1,0 +1,27 @@
+﻿@using ecom
+@using ecom.Data
+@using ecom.Models
+@using ecom.ViewModels
+@using Microsoft.AspNetCore.Identity
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+
+@inject UserManager<AppUser> UserManager
+@inject SignInManager<AppUser> SignInManager
+@inject ApplicationDbContext Context
+
+@{
+    var userId = UserManager.GetUserId(User);
+    int cartCount = 0;
+
+    if (userId != null)
+    {
+        cartCount = Context.ShoppingCartItems
+                           .Where(ci => ci.Cart.UserId == userId)
+                           .Sum(ci => ci.Quantity);
+    }
+
+    ViewBag.CartCount = cartCount;
+}
+

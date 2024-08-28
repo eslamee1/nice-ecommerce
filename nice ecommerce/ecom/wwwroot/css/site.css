@@ -1,0 +1,137 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/*---------------------------------*/
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-right: 1px solid #dee2e6;
+    overflow-y: auto;
+}
+
+    .sidebar h4 {
+        margin-top: 0;
+    }
+
+    .sidebar .list-group-item {
+        border: none;
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+
+        .sidebar .list-group-item a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+        }
+
+            .sidebar .list-group-item a:hover {
+                background-color: #e9ecef;
+                color: #007bff;
+            }
+
+
+/*---------------------------------*/
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 60px; /* Adjust this value based on the height of your navbar */
+    left: 0;
+    height: calc(100vh - 60px); /* Adjust this to account for the height of the navbar */
+    width: 250px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-right: 1px solid #dee2e6;
+    overflow-y: auto;
+}
+
+.main-content {
+    margin-left: 250px; /* Same as the width of the sidebar */
+    padding: 20px; /* Adds padding to the main content */
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: relative;
+        top: 0;
+        height: auto;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+}
+
+
+
+
+
+
+.product-image {
+    max-width: 80%; /* Scale down the image to 80% of its natural size */
+    height: auto; /* Maintain the aspect ratio of the image */
+    object-fit: contain; /* Ensure the entire image is visible without cropping */
+}
+
+
+/*---------------------------------*/
+
+
+/*product card view settings*/
+.card-img-top {
+    width: 100%;
+    height: 200px; /* Adjust the height as needed */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #555;
+}
